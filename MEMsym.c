@@ -3,7 +3,7 @@
 // Función principal
 int main() {
     // Inicializa variables aquí
-    printf("Hola buenas, este es mi programa en C\n");
+    printf("Hola buenas tardes, este es mi programa en C\n");
 
     // Tu lógica aquí
 

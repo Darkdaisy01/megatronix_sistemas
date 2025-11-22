@@ -1,11 +1,21 @@
 #include <stdio.h>
 
-// Función principal
-int main() {
-    // Inicializa variables aquí
-    printf("Hola buenas tardes, este es mi programa en C\n");
+#define TAM_LINEA 16
 
-    // Tu lógica aquí
+
+typedef struct {
+unsigned char ETQ;
+unsigned char Data[TAM_LINEA];
+} T_CACHE_LINE;
+
+
+int main() {
+    
+    int globaltime = 0;
+    int numfallos = 0;
+    
+    printf("BOOOOMM\n");
+
 
     return 0;
 }

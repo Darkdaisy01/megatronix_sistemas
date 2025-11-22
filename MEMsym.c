@@ -102,20 +102,3 @@ void TratarFallo(T_CACHE_LINE tbl[NUMFILAS], unsigned char *Simul_RAM, int ETQ, 
     }
 }
 
-void LimpiarCACHE(T_CACHE_LINE tbl[NUMFILAS])
-{
-    for (int i = 0; i < NUMFILAS; i++) {
-        tbl[i].ETQ = 0xFF; // Valor inválido para indicar línea vacía
-        memset(tbl[i].Data, 0, TAM_LINEA);
-    }
-}
-
-void VolcarCACHE(T_CACHE_LINE tbl[NUMFILAS]){
-    for (int i = 0; i < NUMFILAS; i++) {
-        printf("Línea %d - ETQ: %02X - Datos: ", i, tbl[i].ETQ);
-        for (int j = 0; j < TAM_LINEA; j++) {
-            printf("%02X ", tbl[i].Data[j]);
-        }
-        printf("\n");
-    }
-}

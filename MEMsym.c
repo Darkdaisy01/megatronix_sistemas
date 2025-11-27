@@ -11,7 +11,7 @@ typedef struct {
     unsigned char Data[TAM_LINEA];
 } T_CACHE_LINE;
 
-// ---------- PROTOTIPOS OBLIGATORIOS ----------
+// Prototipos de las funciones 
 void LimpiarCACHE(T_CACHE_LINE tbl[NUM_FILAS]);
 void VolcarCACHE(T_CACHE_LINE *tbl);
 void ParsearDireccion(unsigned int addr, int *ETQ, int *palabra, int *linea, int *bloque);
@@ -19,6 +19,7 @@ void TratarFallo(T_CACHE_LINE tbl[NUM_FILAS],unsigned char *Simul_RAM,int ETQ, i
 
 
 int main(void) {
+
     T_CACHE_LINE cache[NUM_FILAS];
     unsigned char Simul_RAM[RAM_SIZE];
 
@@ -28,7 +29,7 @@ int main(void) {
 
     LimpiarCACHE(cache);
 
-    // ---------- CARGAR RAM ----------
+    // Cargar RAM
     FILE *f_ram = fopen("CONTENTS_RAM.bin", "rb");
     if (!f_ram) {
         printf("ERROR: No se puede abrir CONTENTS_RAM.bin\n");
@@ -42,7 +43,7 @@ int main(void) {
     }
     fclose(f_ram);
 
-    // ---------- ABRIR FICHERO DE DIRECCIONES ----------
+    // Abrir fichero de direcciones
     FILE *f_dir = fopen("accesos_memoria.txt", "r");
     if (!f_dir) {
         printf("ERROR: No se puede abrir accesos_memoria.txt\n");
@@ -53,7 +54,7 @@ int main(void) {
     char texto_leido[RAM_SIZE];
     int  pos_texto = 0;
 
-    // ---------- BUCLE PRINCIPAL DE ACCESOS ----------
+    // Bucle principal de accesos
     unsigned int direccion;
 
     while (fscanf(f_dir, "%x", &direccion) == 1) {
@@ -64,7 +65,7 @@ int main(void) {
         globaltime++;        // cada acceso suma 1 unidad de tiempo
 
         if (cache[linea].ETQ == (unsigned char)ETQ) {
-            // ---- ACIERTO ----
+            // Acierto de caché
             unsigned char dato = cache[linea].Data[palabra];
 
             printf("T: %d, Acierto de caché, addr %04X etq %02X linea %02d dato %02X\n",
@@ -72,7 +73,7 @@ int main(void) {
 
             texto_leido[pos_texto++] = (char)dato;
         } else {
-            // ---- FALLO ----
+            // Fallo de caché
             numfallos++;
 
             printf("T: %d, Fallo de caché %d, addr %04X etq %02X linea %02d palabra %02X bloque %02X\n",globaltime, numfallos, direccion, ETQ, linea, palabra, bloque);
@@ -93,10 +94,10 @@ int main(void) {
 
     fclose(f_dir);
 
-    // ---------- VOLCADO FINAL DE CACHÉ POR PANTALLA ----------
+    // Volcado final de caché por pantalla
     VolcarCACHE(cache);
 
-    // ---------- ESTADÍSTICAS FINALES ----------
+    // Estadísticas finales
     double tiempo_medio = 0.0;
     if (accesos > 0)
         tiempo_medio = (double)globaltime / (double)accesos;
@@ -107,7 +108,7 @@ int main(void) {
     texto_leido[pos_texto] = '\0';
     printf("Texto leído: %s\n", texto_leido);
 
-    // ---------- VOLCADO A CONTENTS_CACHE.bin ----------
+    // Volcado a CONTENTS_CACHE.bin
     FILE *f_cache = fopen("CONTENTS_CACHE.bin", "wb");
     if (f_cache) {
         // Byte 0 = byte 0 de la línea 0, etc.

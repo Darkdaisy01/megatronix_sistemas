@@ -62,7 +62,7 @@ int main(void) {
         ParsearDireccion(direccion, &ETQ, &palabra, &linea, &bloque);
 
         accesos++;
-        globaltime++;        // cada acceso suma 1 unidad de tiempo
+        globaltime++;     
 
         if (cache[linea].ETQ == (unsigned char)ETQ) {
             // Acierto de caché

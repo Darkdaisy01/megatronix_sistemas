@@ -1,1 +1,33 @@
-Hola, este es mi programa en C
+T: 1, Fallo de caché 1, addr 022E etq 04 linea 02 palabra 0E bloque 22
+Cargando el bloque 22 en la línea 02
+T: 2, Fallo de caché 2, addr 0434 etq 08 linea 03 palabra 04 bloque 43
+Cargando el bloque 43 en la línea 03
+T: 3, Acierto de caché, addr 0430 etq 08 linea 03 dato 78
+T: 4, Fallo de caché 3, addr 0598 etq 0B linea 01 palabra 08 bloque 59
+Cargando el bloque 59 en la línea 01
+T: 5, Acierto de caché, addr 0595 etq 0B linea 01 dato 62
+T: 6, Acierto de caché, addr 0596 etq 0B linea 01 dato 75
+T: 7, Fallo de caché 4, addr 0C77 etq 18 linea 07 palabra 07 bloque C7
+Cargando el bloque C7 en la línea 07
+T: 8, Fallo de caché 5, addr 0B09 etq 16 linea 00 palabra 09 bloque B0
+Cargando el bloque B0 en la línea 00
+T: 9, Fallo de caché 6, addr 063A etq 0C linea 03 palabra 0A bloque 63
+Cargando el bloque 63 en la línea 03
+T: 10, Fallo de caché 7, addr 0FC4 etq 1F linea 04 palabra 04 bloque FC
+Cargando el bloque FC en la línea 04
+T: 11, Fallo de caché 8, addr 081C etq 10 linea 01 palabra 0C bloque 81
+Cargando el bloque 81 en la línea 01
+T: 12, Acierto de caché, addr 0FC0 etq 1F linea 04 dato 66
+T: 13, Fallo de caché 9, addr 0062 etq 00 linea 06 palabra 02 bloque 06
+Cargando el bloque 06 en la línea 06
+T: 14, Acierto de caché, addr 0FC6 etq 1F linea 04 dato 6E
+16    Datos:65 64 69 76 20 75 74 61 6E 65 73 20 6E 69 20 6F 
+10    Datos:43 20 74 65 20 2E 6C 70 20 6D 75 6E 75 62 69 72 
+04    Datos:73 6F 6E 20 6D 65 75 71 20 2C 73 69 72 65 70 65 
+0C    Datos:20 65 75 71 65 6E 20 6D 75 69 6C 69 73 6E 6F 63 
+1F    Datos:65 63 20 73 69 6D 72 61 20 6E 69 20 65 72 6F 66 
+FF    Datos:23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 
+00    Datos:64 61 20 6D 65 75 71 20 3F 74 65 64 75 6C 65 20 
+18    Datos:6D 61 74 20 6F 6D 65 6E 20 6D 61 69 20 6D 75 63 
+Accesos totales: 14; fallos: 9; Tiempo medio: 1.00
+Texto leído: osx bu tn efln

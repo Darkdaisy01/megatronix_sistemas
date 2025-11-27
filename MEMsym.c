@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>     // sleep
+#include <unistd.h>     
 
 #define NUM_FILAS   8
 #define TAM_LINEA   16
@@ -15,6 +15,7 @@ typedef struct {
 void LimpiarCACHE(T_CACHE_LINE tbl[NUM_FILAS]);
 void VolcarCACHE(T_CACHE_LINE *tbl);
 void ParsearDireccion(unsigned int addr, int *ETQ, int *palabra, int *linea, int *bloque);
+void TratarFallo(T_CACHE_LINE tbl[NUM_FILAS],unsigned char *Simul_RAM,int ETQ, int linea, int bloque);
 
 
 int main(void) {
@@ -42,9 +43,9 @@ int main(void) {
     fclose(f_ram);
 
     // ---------- ABRIR FICHERO DE DIRECCIONES ----------
-    FILE *f_dir = fopen("dirs_memoria.txt", "r");
+    FILE *f_dir = fopen("accesos_memoria.txt", "r");
     if (!f_dir) {
-        printf("ERROR: No se puede abrir dirs_memoria.txt\n");
+        printf("ERROR: No se puede abrir accesos_memoria.txt\n");
         return -1;
     }
 

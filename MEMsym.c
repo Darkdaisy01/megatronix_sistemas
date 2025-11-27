@@ -74,11 +74,9 @@ int main(void) {
             // ---- FALLO ----
             numfallos++;
 
-            printf("T: %d, Fallo de caché %d, addr %04X etq %02X linea %02d palabra %02X bloque %02X\n",
-                   globaltime, numfallos, direccion, ETQ, linea, palabra, bloque);
+            printf("T: %d, Fallo de caché %d, addr %04X etq %02X linea %02d palabra %02X bloque %02X\n",globaltime, numfallos, direccion, ETQ, linea, palabra, bloque);
 
-            printf("Cargando el bloque %02X en la línea %02d\n",
-                   bloque, linea);
+            printf("Cargando el bloque %02X en la línea %02d\n",bloque, linea);
 
             TratarFallo(cache, Simul_RAM, ETQ, linea, bloque);
 
@@ -155,5 +153,9 @@ void ParsearDireccion(unsigned int addr, int *ETQ, int *palabra, int *linea, int
 
 void TratarFallo(T_CACHE_LINE tbl[NUM_FILAS],unsigned char *Simul_RAM,int ETQ, int linea, int bloque)
 {
-    
+    tbl[linea].ETQ = (unsigned char)ETQ;
+    int inicio = bloque * TAM_LINEA;
+    for (int i = 0; i < TAM_LINEA; i++) {
+        tbl[linea].Data[i] = Simul_RAM[inicio + i];
+    }
 }

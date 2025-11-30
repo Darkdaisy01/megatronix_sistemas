@@ -68,8 +68,7 @@ int main(void) {
             // Acierto de caché
             unsigned char dato = cache[linea].Data[palabra];
 
-            printf("T: %d, Acierto de caché, addr %04X etq %02X linea %02d dato %02X\n",
-                   globaltime, direccion, ETQ, linea, dato);
+            printf("T: %d, Acierto de caché, addr %04X etq %02X linea %02d dato %02X\n",globaltime, direccion, ETQ, linea, dato);
 
             texto_leido[pos_texto++] = (char)dato;
         } else {
